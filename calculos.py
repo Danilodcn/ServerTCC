@@ -15,11 +15,11 @@ def sort(lista: list, debug=False):
                 if lista[i] > lista[j]:
                     lista[i], lista[j] = lista[j], lista[i]
         if debug: 
-            retorno["nao ordenado"] = l
+            retorno["nao_ordenado"] = l
             #print(lista)
         retorno["ordenado"] = lista
         retorno["status"] = True
-        retorno["tempo de execucao"] = timeit.default_timer() - t
+        retorno["tempo"] = timeit.default_timer() - t
     except Exception as e:
         retorno["status"] = False
         retorno["erro"] = e
