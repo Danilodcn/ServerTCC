@@ -28,11 +28,8 @@ def rota():
             n = request.args.get("n")
             b = True if request.args.get("b") == "True" else False
             calc = calculos.sort([random() for i in range(int(n))], b)
-            tipo = request.args.get("tipo")
-            if not tipo: 
-                retorno["Erro"] = "Nao foi encontrado esse comando"
-            elif calc[tipo]:
-                retorno[tipo] = calc[tipo]
+            if request.args.get("tipo"):
+                retorno[request.args.get("tipo")] = calc[request.args.get("tipo")]
             else:
                 retorno["Calculo"] =  calc
         except Exception as e:
