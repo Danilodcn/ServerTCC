@@ -1,13 +1,5 @@
 from flask import Flask, jsonify, render_template
 
-try:
-    from server.api import API
-    from server.bp_api import create_bp
-except Exception as erro:
-    print("Erro em import: {}".format(erro))
-    from .server.api import API
-    from .server.bp_api import create_bp
-
 from os import getpid
 from pprint import pprint
 from time import sleep
@@ -24,8 +16,6 @@ def func(n):
 
 def create_app():
     app = Flask(__name__)
-    bp = create_bp("/api")
-    app.register_blueprint(bp)
 
     @app.route("/")
     def nome():
