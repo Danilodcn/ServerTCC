@@ -4,12 +4,10 @@ from os import getpid
 from pprint import pprint
 from time import sleep
 from random import random
-from multiprocessing import Pool
 
 
 def func(n):
     n = int(n)
-    print(f"Processo {n}")
     sleep(random() / 10)
     return {n + 1: getpid()}
 
@@ -23,8 +21,7 @@ def create_app():
 
     @app.route("/n/<int:n>")
     def home(n):
-        workers = Pool(3)
-        response = workers.map(func, range(n))
+        response = list(map(func, range(n)))
         return jsonify({"nome": response})
 
     return app
