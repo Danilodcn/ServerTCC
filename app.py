@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 try:
     from server.api import API
@@ -27,14 +27,12 @@ def create_app():
     bp = create_bp("/api")
     app.register_blueprint(bp)
 
-    @app.route("/<name>:str")
-    def nome(name):
-        print(name)
-        return jsonify(name)
+    @app.route("/")
+    def nome():
+        return render_template("home.html")
 
-    @app.route("/<int:n>")
+    @app.route("/n/<int:n>")
     def home(n):
-        input(type(n))
         workers = Pool(3)
         response = workers.map(func, range(n))
         return jsonify({"nome": response})

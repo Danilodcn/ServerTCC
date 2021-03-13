@@ -8,7 +8,7 @@ print(__name__)
 
 @app.route("/")
 def home():
-    files = open("Home.html")
+    files = open("templates/Home.html")
     x = files.read()
     return "<div>" + x + "</div>"
 
