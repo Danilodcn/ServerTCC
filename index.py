@@ -14,7 +14,7 @@ def home():
 
 @app.route("/n/<int:m>")
 def funcao():
-    return str(m)
+    return "CALCULO"
 
 
 @app.route("/segunda", methods=["GET"])
