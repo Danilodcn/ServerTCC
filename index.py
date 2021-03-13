@@ -12,9 +12,9 @@ def home():
     x = files.read()
     return "<div>" + x + "</div>"
 
-@app.route("/n/<int:m>")
+@app.route("/n/")
 def funcao():
-    return "CALCULO"
+    return "Danilo"
 
 
 @app.route("/segunda", methods=["GET"])
