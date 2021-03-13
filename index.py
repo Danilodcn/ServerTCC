@@ -12,6 +12,10 @@ def home():
     x = files.read()
     return "<div>" + x + "</div>"
 
+@app.route("/n/")
+def funcao():
+    return "Danilo"
+
 
 @app.route("/segunda", methods=["GET"])
 def segunda():
